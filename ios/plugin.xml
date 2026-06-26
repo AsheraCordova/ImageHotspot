@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.ashera.imagehotspot.ios"
+        version="1.0">
+
+  <name>CordovaImageHotspotPlugin</name>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+  
+  <platform name="ios">
+    <config-file target="config.xml" parent="/widget">
+      <feature name="CordovaImageHotspotPlugin">
+        	<param name="ios-package" value="CordovaImageHotspotPlugin" />
+         	<param name="onload" value="true" />
+      </feature>
+    </config-file>
+
+   	 <!-- start ios -->
+     <header-file src="ios/src/CordovaImageHotspotPlugin.h" target-dir="ImageHotspot/ios/src"/>
+     <source-file src="ios/src/CordovaImageHotspotPlugin.m" target-dir="ImageHotspot/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
+     <header-file src="ios/src/HotspotEventCommand.h" target-dir="ImageHotspot/ios/src"/>
+     <source-file src="ios/src/HotspotEventCommand.m" target-dir="ImageHotspot/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
+     <header-file src="ios/src/ImageHotspotPlugin.h" target-dir="ImageHotspot/ios/src"/>
+     <source-file src="ios/src/ImageHotspotPlugin.m" target-dir="ImageHotspot/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
+     <header-file src="ios/src/ImageHotspotViewImpl.h" target-dir="ImageHotspot/ios/src"/>
+     <source-file src="ios/src/ImageHotspotViewImpl.m" target-dir="ImageHotspot/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
+     <!-- ios end -->
+     <!-- start tsc -->
+     <source-file src="tsc/src/ios/widget/ImageHotspotViewImpl.ts" target-dir="tsc/src/ios/widget"/>
+     <!-- tsc end -->
+  </platform>
+
+</plugin>

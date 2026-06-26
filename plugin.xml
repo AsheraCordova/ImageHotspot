@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.ashera.imagehotspot"
+        version="1.0">
+
+  <name>CordovaImageHotspotPlugin</name>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+  
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="CordovaImageHotspotPlugin">
+        <param name="android-package" value="com.ashera.imagehotspot.CordovaImageHotspotPlugin"/>
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+
+   	 <!-- start src -->
+     <source-file src="android/src/com/ashera/imagehotspot/CordovaImageHotspotPlugin.java" target-dir="src/com/ashera/imagehotspot"/>
+     <source-file src="android/src/com/ashera/imagehotspot/HotspotEventCommand.java" target-dir="src/com/ashera/imagehotspot"/>
+     <source-file src="android/src/com/ashera/imagehotspot/ImageHotspotPlugin.java" target-dir="src/com/ashera/imagehotspot"/>
+     <source-file src="android/src/com/ashera/imagehotspot/ImageHotspotViewImpl.java" target-dir="src/com/ashera/imagehotspot"/>
+     <!-- src end -->
+     <!-- start res -->
+
+     <!-- res end -->
+     <!-- start tsc -->
+     <source-file src="android/tsc/src/android/widget/ImageHotspotViewImpl.ts" target-dir="tsc/src/android/widget"/>
+     <!-- tsc end -->
+  </platform>
+  <platform name="ios">
+    <config-file target="config.xml" parent="/widget">
+      <feature name="CordovaImageHotspotPlugin">
+        	<param name="ios-package" value="CordovaImageHotspotPlugin" />
+         	<param name="onload" value="true" />
+      </feature>
+    </config-file>
+
+   	 <!-- start ios -->
+     <header-file src="ios/ios/src/CordovaImageHotspotPlugin.h" target-dir="ImageHotspot/ios/src"/>
+     <source-file src="ios/ios/src/CordovaImageHotspotPlugin.m" target-dir="ImageHotspot/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
+     <header-file src="ios/ios/src/HotspotEventCommand.h" target-dir="ImageHotspot/ios/src"/>
+     <source-file src="ios/ios/src/HotspotEventCommand.m" target-dir="ImageHotspot/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
+     <header-file src="ios/ios/src/ImageHotspotPlugin.h" target-dir="ImageHotspot/ios/src"/>
+     <source-file src="ios/ios/src/ImageHotspotPlugin.m" target-dir="ImageHotspot/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
+     <header-file src="ios/ios/src/ImageHotspotViewImpl.h" target-dir="ImageHotspot/ios/src"/>
+     <source-file src="ios/ios/src/ImageHotspotViewImpl.m" target-dir="ImageHotspot/ios/src" compiler-flags="-fobjc-arc-exceptions"/>
+     <!-- ios end -->
+     <!-- start tsc -->
+     <source-file src="ios/tsc/src/ios/widget/ImageHotspotViewImpl.ts" target-dir="tsc/src/ios/widget"/>
+     <!-- tsc end -->
+  </platform>
+  <platform name="browser">
+    <config-file target="config.xml" parent="/*">
+      <feature name="CordovaImageHotspotPlugin">
+        <param name="android-package" value="com.ashera.imagehotspot.CordovaImageHotspotPlugin"/>
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+	<framework src="browser/core.gradle" custom="true" type="gradleReference" />
+   	 <!-- start src -->
+     <!-- src end -->
+     <!-- start res -->
+     <!-- res end -->
+     <!-- start tsc -->
+     <source-file src="browser/tsc/src/web/widget/ImageHotspotViewImpl.ts" target-dir="tsc/src/web/widget"/>
+     <!-- tsc end -->
+  </platform>
+  <platform name="swt">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="CordovaImageHotspotPlugin">
+        <param name="android-package" value="com.ashera.imagehotspot.CordovaImageHotspotPlugin"/>
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+	<framework src="swt/core.gradle" custom="true" type="gradleReference" />
+   	 <!-- start src -->
+     <!-- src end -->
+     <!-- start res -->
+     <!-- res end -->
+     <!-- start tsc -->
+     <source-file src="swt/tsc/src/swt/widget/ImageHotspotViewImpl.ts" target-dir="tsc/src/swt/widget"/>
+     <!-- tsc end -->
+  </platform>
+
+
+
+
+
+</plugin>
