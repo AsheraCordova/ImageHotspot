@@ -1,6 +1,6 @@
 # ImageHotspot
 
-Project which adds support for clickable hitspots for ImageView.
+Project which adds support for clickable hotspots for ImageView.
 
 ## Installation
 To install the plugin use:
