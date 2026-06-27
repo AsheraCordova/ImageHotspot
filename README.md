@@ -44,4 +44,7 @@ hotspotOverlayDrawablesByType | If Overlay drawable needs to be drawn only for a
 hotspotDetectOnlyOnce         | Detect the hotspot only once. Once a hotspot is found dont call the callback again.
 hotspotDebug                  | Show debug hotspots i.e rectangles with border green. Only works in android.
 
-Note: * indicates mandatory. Also onTouch-android and onAndroidTouch are mandatory as touch events are directed to onhotspotClick internally. id for ImageView is needed for the working of the hotspot. 
+Note: 
+* \* indicates mandatory.
+* onTouch-android and onAndroidTouch are mandatory as touch events are directed to onhotspotClick internally.
+* id for ImageView is needed for the working of the hotspot. 
