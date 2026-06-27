@@ -66,6 +66,7 @@ public class ImageHotspotViewImpl implements com.ashera.widget.IAttributable {
 		WidgetFactory.registerAttribute(localName, new WidgetAttribute.Builder().withName("hotspotOverlayDrawable").withType("string"));
 		WidgetFactory.registerAttribute(localName, new WidgetAttribute.Builder().withName("hotspotOverlayDrawablesByType").withType("string"));
 		WidgetFactory.registerAttribute(localName, new WidgetAttribute.Builder().withName("hotspotDetectOnlyOnce").withType("boolean"));
+		WidgetFactory.registerAttribute(localName, new WidgetAttribute.Builder().withName("hotspotDebug").withType("boolean"));
 	}
 
 	@SuppressLint("NewApi")
@@ -113,6 +114,15 @@ public class ImageHotspotViewImpl implements com.ashera.widget.IAttributable {
 
 
 		setHotspotDetectOnlyOnce(w, strValue, objValue, view);
+
+
+
+			}
+			break;
+		case "hotspotDebug": {
+
+
+		setHotspotDebug(w, strValue, objValue, view);
 
 
 
@@ -503,17 +513,21 @@ public java.util.Map<String, Object> getOnHotspotClickEventObj(Hotspot hotspot,i
 	}
 	
 	private Drawable createDebugDrawable(int left, int top, int right, int bottom) {
-		android.graphics.drawable.ShapeDrawable drawable = new android.graphics.drawable.ShapeDrawable(
-				new android.graphics.drawable.shapes.RectShape());
-
-		Paint paint = drawable.getPaint();
-		paint.setStyle(Paint.Style.STROKE);
-		paint.setStrokeWidth(4);
-		paint.setColor(Color.GREEN);
-
-		drawable.setBounds(left, top, right, bottom);
-
-		return drawable;
+		if (debugHotSpots) {
+			android.graphics.drawable.ShapeDrawable drawable = new android.graphics.drawable.ShapeDrawable(
+					new android.graphics.drawable.shapes.RectShape());
+	
+			Paint paint = drawable.getPaint();
+			paint.setStyle(Paint.Style.STROKE);
+			paint.setStrokeWidth(4);
+			paint.setColor(Color.GREEN);
+	
+			drawable.setBounds(left, top, right, bottom);
+	
+			return drawable;
+		}
+		
+		return null;
 	}
 
 	private void setUseGc(Drawable markerCopy) {
@@ -522,4 +536,10 @@ public java.util.Map<String, Object> getOnHotspotClickEventObj(Hotspot hotspot,i
 
 	private void requestLayout(ImageView imageView) {
 	}
+	
+	private boolean debugHotSpots;
+	private void setHotspotDebug(IWidget w2, String strValue, Object objValue, View view) {
+		debugHotSpots = (boolean) objValue;
+	}
+	
 }

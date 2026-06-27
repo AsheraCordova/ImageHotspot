@@ -21,6 +21,7 @@ import { Mixin, decorate } from 'ts-mixer';
 
 
 
+
 // end - imports
 import {ViewImpl} from './ViewImpl';
 export abstract class ImageHotspotViewImpl<T> extends ViewImpl<T>{
@@ -42,6 +43,9 @@ export abstract class ImageHotspotViewImpl<T> extends ViewImpl<T>{
 	@decorate(Type(() => CommandAttr))
 	@decorate(Expose({ name: "hotspotDetectOnlyOnce" }))
 	hotspotDetectOnlyOnce!:CommandAttr<boolean>| undefined;
+	@decorate(Type(() => CommandAttr))
+	@decorate(Expose({ name: "hotspotDebug" }))
+	hotspotDebug!:CommandAttr<boolean>| undefined;
 
 	@decorate(Exclude())
 	protected thisPointer: T;	
@@ -53,6 +57,7 @@ export abstract class ImageHotspotViewImpl<T> extends ViewImpl<T>{
 		this.hotspotOverlayDrawable = undefined;
 		this.hotspotOverlayDrawablesByType = undefined;
 		this.hotspotDetectOnlyOnce = undefined;
+		this.hotspotDebug = undefined;
 		return this.thisPointer;
 	}
 	constructor(id: string, path: string[], event:  string) {
@@ -127,6 +132,20 @@ export abstract class ImageHotspotViewImpl<T> extends ViewImpl<T>{
 		this.hotspotDetectOnlyOnce.setValue(value);
 		this.orderSet++;
 		this.hotspotDetectOnlyOnce.setOrderSet(this.orderSet);
+		return this.thisPointer;
+	}
+		
+
+	public setHotspotDebug(value : boolean) : T {
+		this.resetIfRequired();
+		if (this.hotspotDebug == null || this.hotspotDebug == undefined) {
+			this.hotspotDebug = new CommandAttr<boolean>();
+		}
+		
+		this.hotspotDebug.setSetter(true);
+		this.hotspotDebug.setValue(value);
+		this.orderSet++;
+		this.hotspotDebug.setOrderSet(this.orderSet);
 		return this.thisPointer;
 	}
 		
